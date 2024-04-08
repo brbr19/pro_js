@@ -1,21 +1,20 @@
-const prompt = require('prompt');
+let unit = 'кг'; 
+let amount = 12; 
+switch (unit) {
+  case 'км':
+    let meters = amount * 1000;
+    console.log(`${amount} км це ${meters} м.`);
+    break;
+  case 'г':
+    let minutes = amount * 60;
+    console.log(`${amount} г це ${minutes} хв.`);
+    break;
+  case 'кг':
+    let grams = amount * 1000;
+    console.log(`${amount} кг це ${grams} гр.`);
+    break;
+  default:
+    console.log('введена якась інша одиниця виміру.');
+}
 
-prompt.start();
 
-prompt.get(['age'], function (err, result) {
-  const age = parseInt(result.age);
-
-  if (!isNaN(age) && age >= 0) {
-    let yearsWord;
-    if (age === 1 || age % 10 === 1) {
-      yearsWord = 'рік';
-    } else if ((age >= 11 && age <= 19) || (age % 10 >= 5 && age % 10 <= 9) || (age % 10 === 0)) {
-      yearsWord = 'років';
-    } else {
-      yearsWord = 'роки';
-    }
-    console.log(`Коректне число: ${age} ${yearsWord}`);
-  } else {
-    console.log('Некоректне введення. Будь ласка, введіть додатнє число.');
-  }
-});
