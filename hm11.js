@@ -1,10 +1,21 @@
 
-var str = "Regul6r";
+var arr = [
+    {
+        userName:"Test",
+        lastName:"Test",
+        email:"test.test@gmail.com"
+    },
+    {
+        userName:"Dmitro",
+        lastName:"Porohov",
+        email:"dmitro.porohov@yahoo.com"
+    },
+    {
+        userName:"Andrii",
+        lastName:"",
+        email:"andrii@mail.ru" // Нам такі не підходять
+    },
+];
 
-var regex = /^(?!.*[Aa]).{6,}$/;
-
-if (regex.test(str)) {
-  console.log("Рядок відповідає умовам.");
-} else {
-  console.log("Рядок не відповідає умовам.");
-}
+var validEmails = arr.filter(obj => /(?:^[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)?)@(?:gmail|yahoo)\.com$/.test(obj.email));
+console.log(validEmails);
