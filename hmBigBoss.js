@@ -41,32 +41,3 @@ const company = {
         }
     ]
 };
-
-function findValueByKey(companyName) {
-    function findCompany(company, name) {
-        if (company.name === name) {
-            console.log(`Знайдено компанію ${companyName}:`);
-            console.log(company);
-            return;
-        }
-
-        if (company.clients && company.clients.length > 0) {
-            for (let client of company.clients) {
-                if (client.name === name) {
-                    console.log(`Знайдено компанію ${companyName}:`);
-                    console.log(client);
-                    return;
-                }
-
-                if (client.partners && client.partners.length > 0) {
-                    findCompany(client, name);
-                }
-            }
-        }
-    }
-
-    findCompany(company, companyName);
-}
-
-// Приклад виклику функції для пошуку компанії 'Клієнт 1.2.3'
-findValueByKey('Клієнт 1.2.3');
